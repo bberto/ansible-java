@@ -72,15 +72,24 @@
     dest={{ util_persistent_data_path_remote }}/{{ item }}
     owner=0
     group=0
-    mode=0644
+    mode=0744
 
 - name: Install Java
   tags: java
   sudo: yes
+  when: java_oracle_version_minor > 6
   unarchive:
     src={{ util_persistent_data_path_remote }}/{{ java_oracle_redis_filename }}
     dest={{ java_install_dir }}/oracle/
     copy=false
+    creates={{ java_install_dir }}/oracle/{{ java_oracle_version_str_pkg }}
+
+- name: Install Java 6
+  tags: java
+  sudo: yes
+  when: java_oracle_version_minor <= 6
+  shell: /{{ util_persistent_data_path_remote }}/{{ java_oracle_redis_filename }} < /bin/echo A
+    chdir={{ java_install_dir }}/oracle/
     creates={{ java_install_dir }}/oracle/{{ java_oracle_version_str_pkg }}
 
 - name: Unarchive Java JCE package

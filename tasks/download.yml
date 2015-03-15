@@ -35,9 +35,7 @@
   failed_when: false
   register: java_oracle_redis_exists
   local_action: command
-    shasum
-      --algorithm 256
-      --portable
+    sha256sum
       --check
       --status
       {{ util_persistent_data_path_local }}/java.sha256sum
@@ -50,9 +48,7 @@
   failed_when: false
   register: java_oracle_redis_jce_exists
   local_action: command
-    shasum
-      --algorithm 256
-      --portable
+    sha256sum
       --check
       --status
       {{ util_persistent_data_path_local }}/java_jce.sha256sum
@@ -134,9 +130,7 @@
   sudo_user: "{{ util_local_action_sudo_user|default(omit) }}"
   when: java_oracle_redis_download|changed
   local_action: command
-    shasum
-      --algorithm 256
-      --portable
+    sha256sum
       --check
       --status
       {{ util_persistent_data_path_local }}/java.sha256sum
@@ -147,9 +141,7 @@
   sudo_user: "{{ util_local_action_sudo_user|default(omit) }}"
   when: java_oracle_redis_jce_download|changed
   local_action: command
-    shasum
-      --algorithm 256
-      --portable
+    sha256sum
       --check
       --status
       {{ util_persistent_data_path_local }}/java_jce.sha256sum
