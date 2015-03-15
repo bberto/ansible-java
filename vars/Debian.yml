@@ -1,3 +1,4 @@
 ---
 java_package_list:
   - unzip
+  - ia32-libs

@@ -4,7 +4,7 @@ Install Oracle Java.
 
 ## Compatibility
 
-### ansible-java 0.7.0
+### ansible-java 0.9.0
 
 Starting with this role version, inventory configuration for pinned
 versions of Java to be installed has changed.
@@ -52,6 +52,8 @@ the *vars/versions* directory. When configuring a version, that is not predefine
 * ``java_oracle_mirror_jce``: Mirror URL for the download of the Oracle Java JCE policies package
 * ``java_oracle_redis_jce_filename``:  File name of the Oracle Java JCE policies package
 * ``java_oracle_redis_jce_archive_dirname``: Name of the base directory in the Oracle Java JCE policies package
+* ``java_oracle_redis_platform``: Platform of Java JDK/JRE redistributable package - ``x64`` (default) and ``i586`` are supported
+* ``java_oracle_redis_extension``: Extension of Java JDK/JRE redistributable package - ``tar.gz`` (default) and ``bin`` (for Java 6) are supported
 
 ### Supported versions
 
@@ -59,6 +61,8 @@ the *vars/versions* directory. When configuring a version, that is not predefine
 * 7u71
 * 8u20
 * 8u25
+* 6u24
+* 6u24_32bit
 
 ## Role facts
 
@@ -97,6 +101,6 @@ Marc Rohlfs @marc.rohlfs silpion.de
 * Sebastian Davids @sebastian.davids silpion.de
 * [ludovicc](https://github.com/ludovicc)
 * [nixlike](https://github.com/nixlike)
-
+* [bberto](https://github.com/bberto)
 
 <!-- vim: set ts=4 sw=4 et nofen: -->

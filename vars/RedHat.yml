@@ -1,3 +1,4 @@
 ---
 java_package_list:
   - unzip
+  - glibc.i686
